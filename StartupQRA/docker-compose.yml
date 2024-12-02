@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  djangoapp:
+    container_name: qra_app
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_USER=postgres
+      - DB_PWD=adil2003
+      - DB_NAME=qrabonement
+      - DB_PORT=5432
+      - DB_HOST=db
+    depends_on:
+      - db
+
+  db:
+    container_name: db
+    image: postgres:12
+    environment:
+      - POSTGRES_DB=qrabonement
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=adil2003
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}

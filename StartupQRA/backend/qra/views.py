@@ -1,28 +1,25 @@
 from rest_framework import serializers  # Импортируем serializers
 from rest_framework import viewsets, permissions
+from rest_framework.permissions import AllowAny
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import Client, Tariff, Membership
 from .serializers import ClientSerializer, TariffSerializer, MembershipSerializer
 
-class IsAdminUser(permissions.BasePermission):
-    def has_permission(self, request, view):
-        return request.user and request.user.is_staff
-
 class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()
     serializer_class = ClientSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [AllowAny]
 
 class TariffViewSet(viewsets.ModelViewSet):
     queryset = Tariff.objects.all()
     serializer_class = TariffSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [AllowAny]
 
 class MembershipViewSet(viewsets.ModelViewSet):
     queryset = Membership.objects.select_related('client', 'tariff')
     serializer_class = MembershipSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [AllowAny]
 
     def perform_create(self, serializer):
         client_id = self.request.data.get('client')
