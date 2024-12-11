@@ -4,12 +4,12 @@ from .models import Client, Tariff, Membership
 class ClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Client
-        fields = ['id', 'unique_id', 'full_name', 'email']
+        fields = ['id', 'unique_id', 'full_name']
 
 class TariffSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tariff
-        fields = ['id', 'name', 'price', 'duration_type', 'start_date', 'end_date',
+        fields = ['id', 'name', 'price', 'start_date', 'end_date',
                   'max_visits', 'is_morning', 'is_evening', 'is_active']
 
 class MembershipSerializer(serializers.ModelSerializer):

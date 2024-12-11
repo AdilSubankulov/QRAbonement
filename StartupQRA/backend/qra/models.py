@@ -5,7 +5,6 @@ from datetime import timedelta
 class Client(models.Model):
     unique_id = models.CharField(max_length=100, unique=True)
     full_name = models.CharField(max_length=100)
-    email = models.EmailField()
 
     def __str__(self):
         return self.full_name
@@ -13,7 +12,6 @@ class Client(models.Model):
 class Tariff(models.Model):
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    duration_type = models.CharField(max_length=50)
     start_date = models.DateField()
     end_date = models.DateField()
     max_visits = models.PositiveIntegerField()

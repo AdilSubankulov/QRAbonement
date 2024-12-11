@@ -3,12 +3,12 @@ from .models import Client, Tariff, Membership
 
 @admin.register(Client)
 class ClientAdmin(admin.ModelAdmin):
-    list_display = ['unique_id', 'full_name', 'email']
-    search_fields = ['full_name', 'email']
+    list_display = ['unique_id', 'full_name',]
+    search_fields = ['full_name', ]
 
 @admin.register(Tariff)
 class TariffAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'duration_type', 'start_date', 'end_date',
+    list_display = ['name', 'price', 'start_date', 'end_date',
                     'max_visits', 'is_active']
     list_filter = ['is_active', 'is_morning', 'is_evening']
     search_fields = ['name']

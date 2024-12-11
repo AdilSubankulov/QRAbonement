@@ -1,0 +1,29 @@
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 10px 20px;
+    color: white;
+}
+
+.nav-h1 {
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 350;
+    font-style: normal;
+    font-size: 18px;
+    color: white;
+}
+
+.nav-input {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 200px;
+    font-size: 16px;
+}
+
+.nav-input:focus {
+    outline: none;
+}
